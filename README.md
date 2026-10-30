@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="420" alt="NG AI Tools"></p>
+
 # NG AI Tools for Final Cut Pro (beta)
 
 A small Final Cut Pro **Workflow Extension** that sends frames and short pieces of your timeline clips to AI video models (via the Higgsfield API) and brings the result back, ready to drag onto the timeline.
@@ -12,6 +14,14 @@ A small Final Cut Pro **Workflow Extension** that sends frames and short pieces 
 - **Scene** – replace the background or change the lighting of a clip, with presets.
 
 Also: price estimate before every run, Higgsfield balance, several generations in parallel, many models (Kling, Seedance, Wan, MiniMax, Grok…), drag-and-drop of results to the timeline, English and Russian interface.
+
+## Demo
+<!-- Когда загрузишь файлы в images/, убери эти скобки и поставь реальные имена:
+![Transition](transition.png)
+![Extend](extend.png)
+![Scene](scene.png)
+Видео: [Watch the demo](https://youtu.be/...)
+-->
 
 ## Requirements
 - Mac with **Apple Silicon**, macOS 14+
