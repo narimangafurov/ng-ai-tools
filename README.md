@@ -16,12 +16,9 @@ A small Final Cut Pro **Workflow Extension** that sends frames and short pieces 
 Also: price estimate before every run, Higgsfield balance, several generations in parallel, many models (Kling, Seedance, Wan, MiniMax, Grok…), drag-and-drop of results to the timeline, English and Russian interface.
 
 ## Demo
-<!-- Когда загрузишь файлы в images/, убери эти скобки и поставь реальные имена:
-![Transition](transition.png)
-![Extend](extend.png)
-![Scene](scene.png)
-Видео: [Watch the demo](https://youtu.be/...)
--->
+<p align="center"><img src="transition.jpg" width="360" alt="Transition mode"></p>
+<p align="center"><img src="extend.jpg" width="760" alt="Extend mode"></p>
+<p align="center"><img src="scene.jpg" width="760" alt="Scene mode"></p>
 
 ## Requirements
 - Mac with **Apple Silicon**, macOS 14+
