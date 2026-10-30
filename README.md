@@ -2,6 +2,8 @@
 
 <p align="center"><a href="https://github.com/narimangafurov/ng-ai-tools/releases/latest"><b>⬇ Download NG-AI-Tools-1.0.0-arm64.pkg</b></a> · <a href="FAQ.en.md">FAQ</a></p>
 
+<p align="center"><a href="https://youtu.be/xFNkEWJM_xs"><img src="demo.png" width="640" alt="Watch the demo on YouTube"></a><br><a href="https://youtu.be/xFNkEWJM_xs">▶ Watch the demo video</a></p>
+
 # NG AI Tools for Final Cut Pro (beta)
 
 A small Final Cut Pro **Workflow Extension** that sends frames and short pieces of your timeline clips to AI video models (via the Higgsfield API) and brings the result back, ready to drag onto the timeline.
