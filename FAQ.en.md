@@ -53,6 +53,14 @@ This is a personal project shared **as is, free of charge, with no promise of su
 ## Reporting a bug or an idea
 Please include: the mode and model, the text of the error in the panel (or a screenshot), your Mac chip, macOS and Final Cut Pro versions, and the last lines of `~/Library/Logs/ai_transition_helper.log` if the helper misbehaves. Never send your API key. Ideas for models, presets and features are welcome.
 
+## Where files are stored
+- **Results and working files:** `~/Movies/AI_Transitions`, one folder per job (the finished video, the source piece that was sent to the model as `source.mp4`, extracted frames, a small `request.json` log). It can grow quickly: each job is tens of MB, a few GB after many tests. You can change the folder in the gear menu → **Results folder** (pick it inside Movies, Desktop, Documents, Downloads or on an external drive so dragging to the timeline keeps working).
+- **Cleanup:** gear menu → **Cleanup**. "Remove working copies" deletes only the `source.mp4` pieces; "Move to Trash" sends old jobs (finished files included) to the Trash.
+- **Settings:** the extension keeps panel settings (models shown, price threshold, language) in the app's own preferences; the helper keeps its folder choice in `~/.config/ng-ai-tools/` (created when you change it).
+- **API key:** only in your Mac's Keychain (item `higgsfield-api`), never in a file.
+- **Helper log:** `~/Library/Logs/ai_transition_helper.log`.
+- **What is sent out:** only the frames or short clips you submit, to Higgsfield over HTTPS. The helper listens on `127.0.0.1` only.
+
 ## Pricing
 You pay Higgsfield per second of video; the extension itself is free of charge. Rough guide as of 2026-10-29 (prices change; the panel shows the exact price before each run):
 
@@ -68,7 +76,8 @@ A 3–5 second transition on the cheaper models usually costs tens of cents; Ext
 
 ## Troubleshooting
 - **The extension is missing from Window → Extensions.** Quit FCP (⌘Q) and reopen it. Make sure the app is in `/Applications` and you opened it once. Otherwise reinstall the package.
-- **Red dot / "Helper is not running".** Log out and back in, or reinstall. Check in Terminal: `curl http://127.0.0.1:8787/health`. Log: `~/Library/Logs/ai_transition_helper.log`.
+- **Red dot / "Helper is not running".** Open the **NG AI Tools** app from Applications: its window checks the helper and starts it by itself (the first start can take up to a minute). If that doesn't help, click "Copy diagnostics" in that window and send the text to the author. Other options: log out and back in, allow NG AI Tools in System Settings → General → Login Items & Extensions, or reinstall the package. Check in Terminal: `curl -m 30 http://127.0.0.1:8787/health`. Log: `~/Library/Logs/ai_transition_helper.log`.
+- **"No video file found in what was copied" when pasting from Final Cut.** This happens with compound clips, titles, multicam clips and files on a drive that cannot be read. Drag the file in from Finder, or take a screenshot of the frame (Control+Command+Shift+4) and click the paste icon.
 - **"Key rejected".** Copy the full key without spaces, create a new one at console.higgsfield.ai, check your balance.
 - **Job failed / model unavailable.** Read the error in the panel and try another model; some models may not be available for your account.
 - **Result can't be dragged to the timeline.** The results folder must be in Movies, Desktop, Documents, Downloads or an external drive (gear → Output folder).

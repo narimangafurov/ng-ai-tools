@@ -1,6 +1,6 @@
-<p align="center"><img src="logo.png" width="420" alt="NG AI Tools"></p>
+<p align="center"><img src="cover.png" width="720" alt="NG AI Tools for Final Cut Pro"></p>
 
-<p align="center"><a href="https://github.com/narimangafurov/ng-ai-tools/releases/latest"><b>⬇ Download NG-AI-Tools-1.0.0-arm64.pkg</b></a> · <a href="FAQ.en.md">FAQ</a></p>
+<p align="center"><a href="https://github.com/narimangafurov/ng-ai-tools/releases/latest"><b>⬇ Download the latest NG-AI-Tools .pkg</b></a> · <a href="FAQ.en.md">FAQ</a></p>
 
 <p align="center"><a href="https://youtu.be/xFNkEWJM_xs"><img src="demo.png" width="640" alt="Watch the demo on YouTube"></a><br><a href="https://youtu.be/xFNkEWJM_xs">▶ Watch the demo video</a></p>
 
@@ -28,7 +28,7 @@ Also: price estimate before every run, Higgsfield balance, several generations i
 - Your own **Higgsfield API key** with a funded balance (you pay Higgsfield per generation; the extension itself is free)
 
 ## Install
-Download `NG-AI-Tools-1.0.0-arm64.pkg` from [Releases](../../releases). The installer is not notarized (no paid Apple Developer account), so macOS will ask you to allow it in **System Settings → Privacy & Security → Open Anyway**. Details and troubleshooting: [FAQ](FAQ.en.md) (also in [Russian](FAQ.ru.md)).
+Download the latest `NG-AI-Tools-…-arm64.pkg` from [Releases](../../releases/latest) (current version: 1.0.1; installing a new one over an old one is fine). The installer is not notarized (no paid Apple Developer account), so macOS will ask you to allow it in **System Settings → Privacy & Security → Open Anyway**. Details and troubleshooting: [FAQ](FAQ.en.md) (also in [Russian](FAQ.ru.md)).
 
 ## Feedback
 Bug reports and ideas are very welcome (open an Issue). Please include the mode and model, the error text or a screenshot, your Mac chip, and macOS / Final Cut versions. Never post your API key.
