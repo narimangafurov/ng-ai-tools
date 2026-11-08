@@ -2,7 +2,7 @@
 
 <p align="center"><a href="https://github.com/narimangafurov/ng-ai-tools/releases/latest"><b>⬇ Download the latest NG-AI-Tools .pkg</b></a> · <a href="FAQ.en.md">FAQ</a></p>
 
-<p align="center"><a href="https://youtu.be/xFNkEWJM_x"><img src="demo.png" width="640" alt="Watch the demo on YouTube"></a><br><a href="https://youtu.be/xFNkEWJM_x">▶ Watch the demo video</a></p>
+<p align="center"><a href="https://youtu.be/xFNkEWJM_xs"><img src="demo.png" width="640" alt="Watch the demo on YouTube"></a><br><a href="https://youtu.be/xFNkEWJM_xs">▶ Watch the demo video</a></p>
 
 # NG AI Tools for Final Cut Pro (beta)
 
