@@ -22,6 +22,12 @@ A Final Cut Pro extension with three modes: **Transition** (AI transition betwee
 
 The installer also starts a small helper (it launches at login and listens on 127.0.0.1 only) and creates `~/Movies/AI_Transitions` for results. Nothing else is installed: ffmpeg is bundled inside the app; no Python or Homebrew needed.
 
+## Trial and serial number
+- For the first **7 days** everything works. The panel shows how many days are left. After that the panel still opens, but generation is locked until a serial is entered.
+- Enter the serial in the gear → **Activation**: paste it in full and press "Activate". Internet is needed once; afterwards the app works offline.
+- One serial works on **two** computers. If you change Mac or reinstall macOS, ask the author to free a slot.
+- Serials are issued by the author (free while the project is in beta). Once every 14 days the app needs internet to verify the license: if it was offline longer, generation is locked until it reconnects (the check runs by itself). Setting the clock back does not extend the trial: the app remembers the latest date it has seen.
+
 ## Getting a Higgsfield API key
 1. Go to **console.higgsfield.ai** and sign in.
 2. Open **API keys**, create a key and copy it in full.
@@ -32,23 +38,26 @@ The key is stored only in your Mac's Keychain and is sent only to Higgsfield. It
 
 ## How to use it
 1. In Final Cut, select a clip on the timeline and press **⌘C**. In the panel click the **paste icon** on the slot you need (or press ⌘V to fill a free slot). You can also paste a screenshot, or drag a file in.
-2. **Transition:** fill A (takes its last frame) and B (takes its first frame), pick a preset or write a prompt, choose the model and length, press Generate. The transition is made to the length you set on the slider (the model can generate a bit more or less, the result is fitted).
+2. **Transition:** fill A (takes its last frame) and B (takes its first frame), pick a preset or write a prompt, choose the model and length, press Generate. For effects where one thing turns into another (Ravens, Smoke, Fire, Morph) use 8–10 s if the model allows it. The transition is made to the length you set on the slider (the model can generate a bit more or less, the result is fitted).
 3. **Extend:** paste one clip. "From a frame" is cheap and uses only the last frame; "From the video" is smoother but costs more.
 4. **Scene:** paste a clip, describe the new background or light (or tap a preset), pick a model. One model (Genjutsu Light) needs a reference image.
 5. When it's done, play the result in the panel and **drag it onto the timeline**. Past results are in "Recent".
+
+**"What's in the frame" lines.** When you load A and B, two short lines appear under them, for example *a person riding a bicycle in a forest* and *a person under a blue sky*. They are written automatically by Apple's Vision recognition (on your Mac, offline, nothing to install). When you tap a preset that has two subjects (Ravens, Morph, Camera pan, Dolly, Crash zoom, Smoke, Fire, Crane up), the lines are put into the prompt. If a line is empty, the preset uses general words ("the subject of the first scene"). You can edit the lines by hand, for example *the same man in a green jersey and a helmet*; the selected preset is highlighted until you change the text. Vision names objects and places but not gender or clothing, so add those yourself when it matters. Turn the detection off in Settings (gear icon).
 
 Tips: use a cheap model for tests and a better one for the final. Several tabs can run at once. The price next to the button updates with length and resolution.
 
 ## Limits to know about
 - Results are short, about 3–15 s, and AI-generated: they can miss. Plan to retry.
-- Models marked with a yellow ⚠︎ are experimental or have no price estimate.
+- Models marked with a yellow ⚠︎ are experimental. Prices for Kling O3 / Omni Edit are approximate (Higgsfield gives no estimate for them; the rate comes from real charges).
 - Some models accept only 16:9, 9:16 or 1:1 frames. For wider footage (e.g. anamorphic 2.67:1) the edges are cropped from the center, or you can tick **"Black bars for wide frames"**.
 - Scene takes only part of a clip per run (6 s for most models, 10–15 s for some) because the input video is billed too.
-- Not available: Google Veo / Gemini, Topaz upscaling.
+- Transition needs a model that takes an end frame. Working ones: Kling 3.0 Standard/Pro, Kling O3 and Omni, Wan 3.0, Seedance. Kling 2.5 / 2.6 ignore the end frame through the API, so they are not offered for transitions.
+- Gemini Omni (Scene Edit, Extend from video, Extend from a frame) goes straight to Google and needs a separate Google AI Studio key (gear → "Google key"). It takes length and aspect ratio from the source clip, so wide clips are center-cropped for it. Not available: Google Veo, Topaz upscaling.
 - Mac with Apple Silicon only; tested on one machine.
 
 ## Is it supported? Will it be updated?
-This is a personal project shared **as is, free of charge, with no promise of support or updates**. It may stop working if Final Cut Pro, macOS or Higgsfield change something. If I find time I will keep improving it, but please don't rely on it for deadlines. You use it at your own risk and your own cost.
+This is a personal project shared **as is, as a 7-day free trial and then by serial number, with no promise of support or updates**. It may stop working if Final Cut Pro, macOS or Higgsfield change something. If I find time I will keep improving it, but please don't rely on it for deadlines. You use it at your own risk and your own cost.
 
 ## Reporting a bug or an idea
 Please include: the mode and model, the text of the error in the panel (or a screenshot), your Mac chip, macOS and Final Cut Pro versions, and the last lines of `~/Library/Logs/ai_transition_helper.log` if the helper misbehaves. Never send your API key. Ideas for models, presets and features are welcome.
@@ -57,12 +66,12 @@ Please include: the mode and model, the text of the error in the panel (or a scr
 - **Results and working files:** `~/Movies/AI_Transitions`, one folder per job (the finished video, the source piece that was sent to the model as `source.mp4`, extracted frames, a small `request.json` log). It can grow quickly: each job is tens of MB, a few GB after many tests. You can change the folder in the gear menu → **Results folder** (pick it inside Movies, Desktop, Documents, Downloads or on an external drive so dragging to the timeline keeps working).
 - **Cleanup:** gear menu → **Cleanup**. "Remove working copies" deletes only the `source.mp4` pieces; "Move to Trash" sends old jobs (finished files included) to the Trash.
 - **Settings:** the extension keeps panel settings (models shown, price threshold, language) in the app's own preferences; the helper keeps its folder choice in `~/.config/ng-ai-tools/` (created when you change it).
-- **API key:** only in your Mac's Keychain (item `higgsfield-api`), never in a file.
+- **API keys:** only in your Mac's Keychain (items `higgsfield-api` and, if you use Gemini, `ng-ai-tools-google`), never in a file.
 - **Helper log:** `~/Library/Logs/ai_transition_helper.log`.
 - **What is sent out:** only the frames or short clips you submit, to Higgsfield over HTTPS. The helper listens on `127.0.0.1` only.
 
 ## Pricing
-You pay Higgsfield per second of video; the extension itself is free of charge. Rough guide as of 2026-10-29 (prices change; the panel shows the exact price before each run):
+You pay Higgsfield per second of video; the extension itself is separate: free for 7 days, then a serial is needed. Rough guide as of 2026-10-29 (prices change; the panel shows the exact price before each run):
 
 | Model | Approx. per second |
 |---|---|
@@ -71,6 +80,9 @@ You pay Higgsfield per second of video; the extension itself is free of charge. 
 | Kling 2.6 Pro | about $0.12 |
 | Seedance 2.0 | $0.10–0.14 |
 | Seedance 2.5 | $0.14–0.21 |
+| Kling 4.0 Edit (Scene) | about $0.094 × (result + input seconds) |
+| Kling O3 Edit (Scene) | about $0.067 × (result + input seconds), approximate |
+| Gemini Omni (Google) | about $0.07 per second of result at 720p, $0.10 at 1080p, plus a little for the input video |
 
 A 3–5 second transition on the cheaper models usually costs tens of cents; Extend "from video" and Scene cost more (input and output video are both billed). In Settings you can set a price threshold above which a confirmation is shown.
 
