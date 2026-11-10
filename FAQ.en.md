@@ -3,12 +3,13 @@
 > **Test (beta) version.** It works on my machine, but there will be bugs. Please report problems and ideas (see "Reporting a bug" below).
 
 ## What is it
-A Final Cut Pro extension with three modes: **Transition** (AI transition between two clips), **Extend** (continue a scene), **Scene** (replace background or lighting). Generation is done by Higgsfield using **your own** API key; the extension only prepares frames and brings the finished ProRes back into FCP.
+A Final Cut Pro extension with three modes: **Transition** (AI transition between two clips), **Extend** (continue a scene), **Scene** (replace background or lighting). Generation is done by Higgsfield and, for the Gemini Omni models, by Google (Gemini API), each using **your own** API key; the extension only prepares frames and brings the finished ProRes back into FCP.
 
 ## Requirements
 - A Mac with **Apple Silicon** (M1 or newer), macOS 14 or later. Intel Macs are not supported.
 - Final Cut Pro 11 or later.
 - A Higgsfield account with an API key and a funded balance.
+- Optional, only for the Gemini Omni models: a Google AI Studio (Gemini API) key with billing enabled.
 
 ## Installation
 1. Download `NG-AI-Tools-1.0.0-arm64.pkg` and double-click it. The package is not signed with an Apple Developer ID, so macOS may say it "can't verify the developer". That is expected.
@@ -68,10 +69,10 @@ Please include: the mode and model, the text of the error in the panel (or a scr
 - **Settings:** the extension keeps panel settings (models shown, price threshold, language) in the app's own preferences; the helper keeps its folder choice in `~/.config/ng-ai-tools/` (created when you change it).
 - **API keys:** only in your Mac's Keychain (items `higgsfield-api` and, if you use Gemini, `ng-ai-tools-google`), never in a file.
 - **Helper log:** `~/Library/Logs/ai_transition_helper.log`.
-- **What is sent out:** only the frames or short clips you submit, to Higgsfield over HTTPS. The helper listens on `127.0.0.1` only.
+- **What is sent out:** only the frames or short clips you submit, to Higgsfield over HTTPS (and to Google's Gemini API if you use the Gemini Omni models). The helper listens on `127.0.0.1` only.
 
 ## Pricing
-You pay Higgsfield per second of video; the extension itself is separate: free for 7 days, then a serial is needed. Rough guide as of 2026-10-29 (prices change; the panel shows the exact price before each run):
+You pay Higgsfield per second of video (and Google directly if you use Gemini Omni); the extension itself is separate: free for 7 days, then a serial is needed. Rough guide as of 2026-10-29 (prices change; the panel shows the exact price before each run):
 
 | Model | Approx. per second |
 |---|---|
@@ -99,4 +100,4 @@ A 3–5 second transition on the cheaper models usually costs tens of cents; Ext
 Gear → **"Remove the helper and login item…"**, then drag "NG AI Tools" from Applications to the Trash. You can delete the key in Keychain Access (item `higgsfield-api`). Finished videos stay in `~/Movies/AI_Transitions`.
 
 ## Security and privacy
-Frames and clips you submit are sent to Higgsfield over HTTPS. The helper listens on localhost only. The package is not Apple-signed (no paid Developer ID), hence the first-run warning. The bundled ffmpeg is built unmodified from official sources, LGPL (see `ffmpeg-LICENSE.txt` inside the app).
+Frames and clips you submit are sent to Higgsfield over HTTPS (or to Google's Gemini API for Gemini Omni models). The helper listens on localhost only. The package is not Apple-signed (no paid Developer ID), hence the first-run warning. The bundled ffmpeg is built unmodified from official sources, LGPL (see `ffmpeg-LICENSE.txt` inside the app).

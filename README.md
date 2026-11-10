@@ -6,7 +6,7 @@
 
 # NG AI Tools for Final Cut Pro (beta)
 
-A small Final Cut Pro **Workflow Extension** that sends frames and short pieces of your timeline clips to AI video models (via the Higgsfield API) and brings the result back, ready to drag onto the timeline.
+A small Final Cut Pro **Workflow Extension** that sends frames and short pieces of your timeline clips to AI video models (via the **Higgsfield API**, and optionally the **Google Gemini API**) and brings the result back, ready to drag onto the timeline.
 
 > **Beta, shareware.** The app is free to try for **7 days** with every feature. After that it needs a **serial number** (one serial works on two Macs). Serials are currently given out personally by the author; there is no public store yet. It works on my machine, but there will be bugs, and there is no promise of support or regular updates. Use at your own risk and cost.
 
